@@ -1,0 +1,17 @@
+<div data-ng-controller="CharactersController">
+
+    <h1>Characters (<a href="#/characters">view</a>)</h1>
+
+    <ul data-ng-if="characters != undefined">
+        <li data-ng-repeat="character in characters" class="{{ character.statusClass }}">
+            <label>
+                Name: <input type="text" data-ng-model="character.name" />
+            </label>
+            <button data-ng-click="remove($index)"
+                    >Delete</button>
+        </li>
+    </ul>
+
+    <button data-ng-click="addNew()">New</button>
+
+</div>

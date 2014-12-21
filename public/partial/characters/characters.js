@@ -1,14 +1,22 @@
 'use strict';
 
-angular.module('universe.home', ['ngRoute'])
+app.controller('CharactersController', function($scope, characters) {
+    $scope.characters = characters.getAll();
 
-    .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/', {
-            templateUrl: 'partial/characters/character.html',
-            controller: 'CharactersController'
-        });
-    }])
+    $scope.addNew = function() {
+        characters.addNew();
+    }
 
-    .controller('CharactersController', function($scope) {
-        $scope.characters = [];
-    });
+    $scope.remove = function(index) {
+        var item = characters.getByIndex(index);
+        item.statusClass = 'deleting';
+        if (window.confirm('Are you sure you want to remove ' +
+                            (item.name || 'this item') +
+                            '? Data cannot be restored once deleted')) {
+            characters.remove(index);
+        } else {
+            item.statusClass = '';
+        }
+    }
+
+});
