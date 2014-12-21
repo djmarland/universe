@@ -1,7 +1,7 @@
 Universe
 ==========
 
-## Initial Conifg from [https://github.com/scotch-io/scotch-box]
+Initial Conifg from https://github.com/scotch-io/scotch-box
 
 ## Get Started
 
@@ -9,4 +9,4 @@ Universe
 * Download and Install VirtualBox
 * Clone this Repository
 * Run Vagrant Up
-* Access Your Project at  [http://192.168.33.10/][14]
+* Access Your Project at  http://192.168.33.10/
