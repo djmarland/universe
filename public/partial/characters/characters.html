@@ -4,7 +4,7 @@
 
     <ul data-ng-if="characters != undefined">
         <li data-ng-repeat="character in characters">
-            <h3>{{ character.name }}</h3>
+            <h3 data-ng-bind="character.name"></h3>
         </li>
     </ul>
 

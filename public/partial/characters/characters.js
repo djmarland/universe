@@ -3,6 +3,12 @@
 app.controller('CharactersController', function($scope, characters) {
     $scope.characters = characters.getAll();
 
+    $scope.$watch('characters', function(newValue, oldValue) {
+        if (newValue) {
+            characters.save();
+        }
+    }, false);
+
     $scope.addNew = function() {
         characters.addNew();
     }

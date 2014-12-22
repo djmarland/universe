@@ -2,9 +2,7 @@
 
 app.factory('characters', function() {
 
-    var data = [
-        { name: 'Davei'}
-    ],
+    var data = [],
     template = {
         name : null,
         statusClass : null
@@ -22,12 +20,25 @@ app.factory('characters', function() {
     },
     getByIndex = function(index) {
         return data[index];
+    },
+    save = function() {
+        localStorage.characters = angular.toJson(data);
+    },
+    retrieve = function() {
+        var stored = angular.fromJson(localStorage.characters);
+        if (stored) {
+            data = stored;
+        }
     };
+
+    // on create, retrieve what is stored
+    retrieve();
 
     return {
         getAll : getAll,
         addNew : addNew,
         remove : remove,
-        getByIndex : getByIndex
+        getByIndex : getByIndex,
+        save : save
     }
 });
